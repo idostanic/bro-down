@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body >
+<div>
+<!-- Placeholder for views -->
+    <div data-ng-view=""></div>
+</div>
+
+
+<script type="angular-local-storage.js"></script>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+<script src="angular-route.js"></script>
+<script src="controllers/teacherController.js"></script>
+<script src="controllers/userController.js"></script>
+<script src="controllers/groupController.js"></script>
+<script src="controllers/signinController.js"></script>
+<script src="services/signinService.js"></script>
+<script src="services/teacherService.js"></script>
+<script src="services/userService.js"></script>
+<script src="services/groupService.js"></script>
+<script>
+
+/*
+    app.factory('simpleFactory',function(){
+        var persons=[
+            {name:'Dtve',city:'carug'},
+            {name:'Dave',city:'corug'},
+            {name:'Dove',city:'curug'}
+        ];
+
+        var factory={};
+
+        factory.getPersons=function(){
+            return persons;
+        };
+        return factory;
+    });
+
+    app.controller('SimpleController',function($scope,simpleFactory){
+        $scope.persons=[];
+
+        init();
+
+        function init () {
+            $scope.persons=simpleFactory.getPersons();
+        }
+
+        $scope.addPerson=function(){
+            $scope.persons.push({name:$scope.newPerson.name, city:$scope.newPerson.city});
+        };
+
+    });
+    
+
+  */
+
+
+</script>
+</body>
+</html>

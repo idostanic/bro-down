@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Register now or <a href="#/signin">Sign In</a></h2>
+
+
+
+
+
+    Name:<input type="text" ng-model="user.name" required/>
+    <br>
+    Birth Year:<input type="number" ng-model="user.age" required/>
+    <br>
+    Group:<div data-ng-controller="groupController">
+
+                <select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" required=""></select>
+
+          </div>
+
+    <br>
+
+    Teacher:<div data-ng-controller="teacherController">
+
+                <select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" required=""></select>
+
+            </div>
+    <br>
+    Username:<input type="text" ng-model="user.username" required/>
+    <br>
+    Password:<input type="text" ng-model="user.password"required />
+    <br>
+
+    <button data-ng-click="saveUser()">Register!</button>
+    
+</div>

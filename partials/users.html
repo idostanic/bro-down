@@ -1,0 +1,30 @@
+<div class="container" >
+<h2>Users</h2>
+
+<!-- 
+    Name: <input type="text" ng-model="filter.name"/>
+    <br>
+    <ul>
+        <li data-ng-repeat="person in persons | filter:filter.name | orderBy: 'name' ">{{person.name | uppercase}}-{{person.city}}</li>
+    </ul>
+
+
+    <br>
+    Name: <input type="text" ng-model="newPerson.name"/>
+    <br>
+    City: <input type="text" ng-model="newPerson.city"/>
+    <br>
+    
+    
+    <button data-ng-click="addPerson()">Add Person</button>
+    
+    <br>
+    -->
+    <ul>
+    <li>NAME | AGE | USERNAME</li>
+    <li data-ng-repeat="user in users">{{user.name}} | {{user.age}} | {{user.username}}</li> 
+    </ul>
+    
+    
+    <a href="#/home">Home</a>
+</div>
