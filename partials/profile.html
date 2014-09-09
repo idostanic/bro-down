@@ -1,10 +1,36 @@
 <div class="container">
 
-    <h2>HELLO</h2>+login
+
+    <signOut callback="signOut()"></signOut>
+<ul>
+    <td>
+    <li ng-repeat="i in getNumber(pages.numberOfTweets) track by $index"><span>
+        <button data-ng-click="getTweetsByPage($index+1)">Page {{$index+1}}</button></span>
+    </li>
+    </td>
+</ul>
+
+    <h2>HELLO</h2>
+
+    <!--<ul>-->
+        <!--<li>Tweets</li>-->
+        <!--<li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}} / {{tweet.userId }}</li>-->
+    <!--</ul>-->
+
+    <table border="2">
+        <tr>
+            <td>CONTENT</td>
+            <TD>TIME</TD>
+        </tr>
+        <tr data-ng-repeat="tweet in tweets">
+            <td>{{tweet.content}}</td>
+            <td>{{tweet.time}}</td>
 
 
-    <ul>
-        <li>Tweets</li>
-        <li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}}/ {{tweet.userId }}</li>
-    </ul>
+
+        </tr>
+
+    </table>
+
+
 </div>

@@ -1,5 +1,7 @@
    app.service('userServiceAPI',function($http,$log) {
 
+
+
         this.saveUser = function (requestData, successCallback, errorCallback) {
             $http({
                 method: 'POST',
@@ -26,15 +28,7 @@
    				
    			}).success(successCallback).error(errorCallback)
    			
-   		}
+   		};
 
-       this.getUsersTweets=function (requestData,successCallback,errorCallback){
-           $http({
-               method:'GET',
-               url:'/api/profile',
-                data:requestData
 
-           }).success(successCallback),error(errorCallback)
-
-       }
    });

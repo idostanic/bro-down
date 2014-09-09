@@ -1,7 +1,7 @@
-  app.controller ('userController', function ($location,$scope, $http,userServiceAPI,signinService){
+  app.controller ('userController', function ($location,$scope, $http,userServiceAPI){
         $scope.user={};
         $scope.users=[];
-        $scope.tweets=[];
+
         $scope.userID={};
 
 
@@ -28,24 +28,15 @@
         listUsers();
 
 
-         $scope.getUsersTweets=function(){
 
-             userServiceAPI.getUsersTweets($scope.loginUser, function (data) {
-                 console.log("successful sign in... data is: " + data);
-                 $scope.tweets=data;
-             },function(data){
-                 alert('error with tweets');
-             });
-         };
         
         $scope.signin=function(){
 
         	userServiceAPI.signin($scope.user,function (data){
         		//console.log("successful sign in... data is: " + data);
-   
-                //userID=data.value.id
-                
-               // signinService.signIn(data.value.)
+                localStorage.setItem('userID',data.value.id);
+                localStorage.setItem('userName',data.value.name);
+
         		$location.path('/profile');
         	},function(data){
         		alert('ERROR');
