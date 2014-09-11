@@ -1,7 +1,7 @@
 <div class="container" >
-<h2>Users</h2>
+<h2>Search for User</h2>
 
-<!-- 
+<!-- <sign-out></sign-out>
     Name: <input type="text" ng-model="filter.name"/>
     <br>
     <ul>
@@ -19,12 +19,29 @@
     <button data-ng-click="addPerson()">Add Person</button>
     
     <br>
-    -->
-    <ul>
+     <ul>
     <li>NAME | AGE | USERNAME</li>
-    <li data-ng-repeat="user in users">{{user.name}} | {{user.age}} | {{user.username}}</li> 
+    <li data-ng-repeat="">{{user.name}} | {{user.age}} | {{user.username}}</li>
     </ul>
-    
-    
-    <a href="#/home">Home</a>
+    -->
+    <a href="#/profile">Profile</a>
+    <sign-out></sign-out>
+
+    Name: <input type="text" ng-model="filter.name"/>
+    <br>
+
+
+    <table border="2">
+        <tr>
+            <td>NAME</td>
+            <TD>USERNAME</TD>
+        </tr>
+        <tr data-ng-repeat="user in users | filter:filter.name | orderBy: 'name' "  >
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+        </tr>
+    </table>
+
+
+
 </div>

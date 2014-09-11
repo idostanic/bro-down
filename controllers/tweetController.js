@@ -3,12 +3,23 @@
  */
 app.controller('tweetController',function($scope,tweetService){
     $scope.tweets=[];
-
+    $scope.tweet;
     $scope.pages;
     $scope.niz=[];
     $scope.getNumber = function(num) {
         return new Array(num);
     }
+    $scope.currentPage;
+
+
+    $scope.postTweet=function(){
+        tweetService.postTweet($scope.tweet,function(data){
+            alert("tweet sent");
+        },function(data){
+            alert("error while saving tweets");
+        })
+    }
+
 
     function getUsersTweets(){
 
@@ -40,11 +51,24 @@ app.controller('tweetController',function($scope,tweetService){
     $scope.getTweetsByPage=function(num){
 
         tweetService.getUsersTweetsByPages(num,function (data){
-
+            $scope.currentPage=num;
             $scope.tweets=data;
         },function(data){
             alert('ERROR WITH PAGING TWEETS');
         })
+    };
+
+    $scope.findCont=function(){
+
+
+        tweetService.findCont($scope.searchContent,$scope.currentPage,function(data){
+
+            $scope.tweets=data;
+
+        },function(data){
+            alert("ERROR WITH FINDING CONTENT");
+        })
+
     };
 
 });

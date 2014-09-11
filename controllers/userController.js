@@ -4,7 +4,7 @@
 
         $scope.userID={};
 
-
+        $scope.fields={};
 
         $scope.saveUser=function(){
 
@@ -16,6 +16,8 @@
             	
             })
         };
+
+
         
         function listUsers(){
         	userServiceAPI.listUsers(function (data){

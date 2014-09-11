@@ -1,7 +1,8 @@
 <div class="container">
 
 
-    <signOut callback="signOut()"></signOut>
+    <p aria-multiline="true"><a href="#/users"> All Users</a> <sign-out></sign-out></p>
+
 <ul>
     <td>
     <li ng-repeat="i in getNumber(pages.numberOfTweets) track by $index"><span>
@@ -10,27 +11,43 @@
     </td>
 </ul>
 
-    <h2>HELLO</h2>
+    <h2>HELLO {{LogName}}</h2>
+    <script>
+        var LogName=localStorage.getItem('userName');
+        console.log(LogName);
+    </script>
 
     <!--<ul>-->
         <!--<li>Tweets</li>-->
         <!--<li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}} / {{tweet.userId }}</li>-->
     <!--</ul>-->
 
-    <table border="2">
-        <tr>
-            <td>CONTENT</td>
-            <TD>TIME</TD>
-        </tr>
-        <tr data-ng-repeat="tweet in tweets">
-            <td>{{tweet.content}}</td>
-            <td>{{tweet.time}}</td>
+    <input type="text" ng-model="tweet">
+    <button data-ng-click="postTweet(); tweet=null">TweeT</button>
+
+    <br>
+    <tweet-directive ng-repeat="tweet in tweets" tweet="tweet">{{tweet.content}} <br> <br> </tweet-directive>
+    <br>
 
 
+    <!--<table border="2">-->
 
-        </tr>
+        <!--<tr>-->
+            <!--<td>CONTENT</td>-->
+            <!--<TD>TIME</TD>-->
+        <!--</tr>-->
+        <!--<tr data-ng-repeat="tweet in tweets">-->
+            <!--<td>{{tweet.content}}</td>-->
+            <!--<td>{{tweet.time}}</td>-->
+            <!--<br>-->
+        <!--</tr>-->
+    <!--</table>-->
 
-    </table>
+    <input type="text" ng-model="searchContent">
+    <button data-ng-click="findCont(); searchContent=null ">Find</button>
 
 
+    <style>
+        tweet-directive {color:red; }
+    </style>
 </div>

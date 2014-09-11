@@ -1,6 +1,7 @@
 /**
  * Created by idostanic on 5.9.14..
  */
+/*
 app.service('signinService',function(){
 
         //userID=6;
@@ -17,4 +18,4 @@ app.service('signinService',function(){
 
         };
 
-});
+});*/

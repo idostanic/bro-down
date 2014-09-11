@@ -18,6 +18,21 @@ app.service('tweetService',function($http) {
 
     };
 
+    this.postTweet=function(tweet,successCallback,errorCallback){
+
+
+        var loginUser=localStorage.getItem('userID');
+        loginUser=parseInt(loginUser);
+
+        $http({
+            method: 'POST',
+            url:"/api/saveTweet",
+            data:{
+                content:tweet,
+                userId:loginUser
+            }
+        })
+    };
 
 
     this.getPages=function(successCallback,errorCallback){
@@ -47,6 +62,20 @@ app.service('tweetService',function($http) {
 
         }).success(successCallback).error(errorCallback)
 
+    };
+
+    this.findCont=function(searchContent,currentPage,successCallBack,errorCallback){
+
+        var loginUser=localStorage.getItem('userID');
+         $http({
+             method: 'GET',
+             url:'/api/findContent',
+             params:{
+                 searchContent:searchContent,
+                 currentPage:currentPage,
+                 loginUser:loginUser
+             }
+         }).success(successCallBack).error(errorCallback)
     };
 
 });
