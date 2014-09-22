@@ -15,14 +15,4 @@ app.directive ('listDirectives',function(){
 });
 
 
-//wolkaboutApp.directive('deviceReadingTile', function () {
-//    return {
-//        restrict: 'E',
-//        replace: true,
-//        scope: {
-//            pointFeed: '='
-//        },
-//        templateUrl: "components/deviceReadingTile/deviceReadingTile.html",
-//        controller: 'DeviceReadingTileController'
-//    }
-//});
+

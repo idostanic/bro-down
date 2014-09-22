@@ -1,0 +1,20 @@
+<header class="head">
+<h3>
+    <span class="hello"> HELLO {{name | uppercase}}</span>
+    <span style="align-content: center">
+        <button data-ng-click="open()" class="changeP">CHANGE PASSWORD</button>
+    </span>
+    <span style="align-content: flex-end">
+        <sign-out></sign-out>
+    </span>
+</h3>
+
+
+
+</header>
+<style>
+    header{background-color: #d0e4fe;}
+</style>
+<section class="page">
+    <ui-view />
+</section>

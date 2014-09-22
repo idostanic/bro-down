@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html data-ng-app="app">
 <head lang="en">
+    <!--<style>-->
+        <!--h2.hello{-->
+            <!--horizontal-align:left;-->
+        <!--}-->
+        <!--button.changeP{-->
+            <!--horizontal-align:middle;-->
+        <!--}-->
+        <!--sign-out.out{-->
+            <!--horizontal-align:right;-->
+        <!--}-->
+    <!--</style>-->
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog-theme-plain.css">
 </head>
 <body >
 <div>
-<!-- Placeholder for views -->
+<!-- Placeholder for views  -->
     <div data-ng-view=""></div>
+    <ui-view></ui-view>
 </div>
 
 
 
-<script src="angular.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/ngDialog/js/ngDialog.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app.js"></script>
 <script src="angular-route.js"></script>
+<script src="controllers/mainFrameCtrl.js"></script>
 <script src="controllers/teacherController.js"></script>
 <script src="controllers/userController.js"></script>
 <script src="controllers/groupController.js"></script>
 <script src="controllers/signinController.js"></script>
+<script src="controllers/signupController.js"></script>
 <script src="controllers/tweetController.js"></script>
 <script src="services/signinService.js"></script>
 <script src="services/tweetService.js"></script>

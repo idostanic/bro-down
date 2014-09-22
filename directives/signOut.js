@@ -5,7 +5,7 @@ app.directive('signOut',function($location){
     return{
         restrict: 'E',
         replace: true,
-        template:'<h3 data-ng-click="sOut()">Sign Out</h3>',
+        template:'<label data-ng-click="sOut()">Sign Out</label>',
         link:function(scope, elem, attrs) {
             scope.sOut=function(){
                 console.log('brise local storage');

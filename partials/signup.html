@@ -17,19 +17,9 @@
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.number"> Not a Number!</span>
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.required"> Required!</span>
     <br>
-    Group:<div data-ng-controller="groupController">
-
-                <select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" required=""></select>
-
-          </div>
-
+    Group:<select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" required="" ng-change="listTeachersforGroup(user.groupId)"></select>
     <br>
-
-    Teacher:<div data-ng-controller="teacherController">
-
-                <select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" required=""></select>
-
-            </div>
+    Teacher:<select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" ></select>
     <br>
     Username:<input type="text" name="username" ng-model="user.username" required ng-maxlength="12" ng-minlength="3"/>
 

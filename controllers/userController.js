@@ -1,21 +1,12 @@
-  app.controller ('userController', function ($location,$scope, $http,userServiceAPI){
+  app.controller ('userController', function ($location,$scope,$state, $http,userServiceAPI){
         $scope.user={};
         $scope.users=[];
-
+        $scope.passwords=[];
         $scope.userID={};
 
         $scope.fields={};
 
-        $scope.saveUser=function(){
 
-            userServiceAPI.saveUser($scope.user,function(data){
-            	alert( data.name +' is saved with id:' + data.id);
-            	
-            },function(data){
-            	alert('ERROR');
-            	
-            })
-        };
 
 
         
@@ -38,12 +29,23 @@
         		//console.log("successful sign in... data is: " + data);
                 localStorage.setItem('userID',data.value.id);
                 localStorage.setItem('userName',data.value.name);
-
-        		$location.path('/profile');
+                var time=new Date();
+                time.getMilliseconds();
+                localStorage.setItem('loginTime',time);
+                $state.transitionTo('home.profile');
+        		//$location.path('/profile');
         	},function(data){
         		alert('ERROR');
         	});
         };
 
+        $scope.changePassword=function(){
+            userServiceAPI.changeInfo($scope.oldPassword,$scope.newPassword,function (data){
+                alert("password is changing...");
+            },
+            function(data){
+                alert('error changing password');
+            });
+        };
 
     });

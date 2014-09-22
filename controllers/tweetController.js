@@ -1,9 +1,10 @@
 /**
  * Created by idostanic on 8.9.14..
  */
-app.controller('tweetController',function($scope,tweetService){
+app.controller('tweetController',function($scope,tweetService,ngDialog){
     $scope.tweets=[];
     $scope.tweet;
+    $scope.name;
     $scope.pages;
     $scope.niz=[];
     $scope.getNumber = function(num) {
@@ -33,7 +34,10 @@ app.controller('tweetController',function($scope,tweetService){
     //zakomentarisani tweets
     //getUsersTweets();
 
-
+    function getName(){
+        $scope.name=localStorage.getItem('userName');
+    }
+    getName();
 
     $scope.getPages = function(){
         tweetService.getPages(function(data){
@@ -70,5 +74,23 @@ app.controller('tweetController',function($scope,tweetService){
         })
 
     };
+
+
+
+
+
+
+//    $scope.autoSignOut=function(){
+//        var loginTime=localStorage.getItem('loginTime');
+//        loginTime.getUTCMilliseconds();
+//        console.log(loginTime +"  vreme logovanja");
+//        var currentTime=new Date().getUTCMilliseconds();;
+//        console.log(currentTime +"  trenutno vreme");
+//        if(loginTime+5>currentTime){
+//
+//            localStorage.clear();
+//            $location.path('/signin');
+//        }
+//    }
 
 });

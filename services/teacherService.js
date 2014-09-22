@@ -7,4 +7,17 @@ app.service('teacherServiceAPI',function($http,$log){
 			
 		}).success(successCallback).error(errorCallback)
 	};
+
+    this.listTeachersforGroup=function (gid,successCallback,errorCallback){
+        $http({
+            method:'GET',
+            url:'/api/teachersByGroup',
+            params:{
+                gid:gid
+            }
+
+        }).success(successCallback).error(errorCallback)
+    };
+
+
 });

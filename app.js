@@ -1,28 +1,42 @@
-    var app=angular.module('app',['ngRoute']);
+    var app=angular.module('app',['ngRoute','ui.router','ngDialog']);
 
-    app.config(function ($routeProvider){
-        $routeProvider
-                .when('/users',
+    app.config(function ($stateProvider, $urlRouterProvider ){
+
+        $urlRouterProvider.otherwise('/signin');
+        $stateProvider
+
+                .state('signup',
                 {
-                    controller:'userController',
-                    templateUrl:'partials/users.html'
-                })
-                .when('/signup',
-                {
-                    controller:'userController',
+                    url:'/signup',
+                    controller:'signupController',
                     templateUrl: 'partials/signup.html'
 
                 })
-                .when('/signin',
+                .state('signin',
                 {
+                    url:'/signin',
                 	controller:'userController',
                 	templateUrl:'partials/signin.html'
                 })
-                .when('/profile',{
+                .state('home',
+                {
+                    abstract:true,
+                    url:'/',
+                    controller:'mainFrameCtrl',
+                    templateUrl:'partials/mainFrame.html'
+                })
+                .state('home.profile',{
+                    url:'profile',
                     controller:'tweetController',
                     templateUrl:'partials/profile.html'
                 })
-                .otherwise({redirectTo:'/signin'});
+                .state('home.users',
+                {
+                    url:'users',
+                    controller:'userController',
+                    templateUrl:'partials/users.html'
+                })
+
 
     });
 
@@ -48,10 +62,11 @@
             var a=!isPublicRoute($location.url());
             var b=("userID" in localStorage);
             var c=typeof localStorage.getItem('userID') !== 'undefined';
-            if(a && b && c){
-                console.log(!a);
+            if(a && !b && c){
+                console.log(a);
                 console.log(b);
                 console.log(c);
+                $location.path('/signin');
 
 //                if($location.url()==='/signin')
 //                    $location.path('/signin');
