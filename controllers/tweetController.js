@@ -1,83 +1,95 @@
 /**
  * Created by idostanic on 8.9.14..
  */
-app.controller('tweetController',function($scope,tweetService,ngDialog){
-    $scope.tweets=[];
+app.controller('tweetController',tweetController);
+function tweetController ($scope,tweetService,ngDialog) {
+
+
+    $scope.tweets = [];
     $scope.tweet;
     $scope.name;
     $scope.pages;
-    $scope.niz=[];
-    $scope.getNumber = function(num) {
+    $scope.niz = [];
+
+    $scope.getNumber = function (num) {
         return new Array(num);
     }
+
     $scope.currentPage;
 
 
-    $scope.postTweet=function(){
-        tweetService.postTweet($scope.tweet,function(data){
+    $scope.postTweet = function (tweet) {
+        console.log("sranje je ovo veliko");
+        tweetService.postTweet(tweet, function (data) {
+
+            getUsersTweets();
+
             alert("tweet sent");
-        },function(data){
+
+        }, function (data) {
+
             alert("error while saving tweets");
         })
+
+
     }
 
 
-    function getUsersTweets(){
-
+    function getUsersTweets() {
+        var data1;
         tweetService.getUsersTweets(function (data) {
-            console.log("successful sign in... data is: " + data);
-            $scope.tweets=data;
-        },function(data){
+            console.log(" inside data is: " + data);
+            data1=data;
+            $scope.tweets = data;
+        }, function (data) {
             alert('error with tweets');
         });
+        console.log("outside data: "+data1);
     }
-    //zakomentarisani tweets
-    //getUsersTweets();
 
-    function getName(){
-        $scope.name=localStorage.getItem('userName');
+    getUsersTweets();
+
+    function getName() {
+        $scope.name = localStorage.getItem('userName');
     }
+
     getName();
 
-    $scope.getPages = function(){
-        tweetService.getPages(function(data){
-            $scope.pages=data;
-           ;
+    $scope.getPages = function () {
+        tweetService.getPages(function (data) {
+            $scope.pages = data;
+            ;
 
-        },function(data){
-            alert("error getting number of pages** "+data);
+        }, function (data) {
+            alert("error getting number of pages** " + data);
         });
 
     }
     $scope.getPages();
 
 
-    $scope.getTweetsByPage=function(num){
+    $scope.getTweetsByPage = function (num) {
 
-        tweetService.getUsersTweetsByPages(num,function (data){
-            $scope.currentPage=num;
-            $scope.tweets=data;
-        },function(data){
+        tweetService.getUsersTweetsByPages(num, function (data) {
+            $scope.currentPage = num;
+            $scope.tweets = data;
+        }, function (data) {
             alert('ERROR WITH PAGING TWEETS');
         })
     };
 
-    $scope.findCont=function(){
+    $scope.findCont = function () {
 
 
-        tweetService.findCont($scope.searchContent,$scope.currentPage,function(data){
+        tweetService.findCont($scope.searchContent, $scope.currentPage, function (data) {
 
-            $scope.tweets=data;
+            $scope.tweets = data;
 
-        },function(data){
+        }, function (data) {
             alert("ERROR WITH FINDING CONTENT");
         })
 
     };
-
-
-
-
 
 
 //    $scope.autoSignOut=function(){
@@ -93,4 +105,4 @@ app.controller('tweetController',function($scope,tweetService,ngDialog){
 //        }
 //    }
 
-});
+};

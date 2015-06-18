@@ -31,7 +31,7 @@ app.service('tweetService',function($http) {
                 content:tweet,
                 userId:loginUser
             }
-        })
+        }).success(successCallback).error(errorCallback)
     };
 
 

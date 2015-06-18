@@ -41,7 +41,7 @@
     });
 
     app.run(function($rootScope,$location){
-        var publicRoutes= ['/signin','/signup'];
+        var publicRoutes= ['/signin','/signup','/home'];
 
 
         var isPublicRoute = function (route) {

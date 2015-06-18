@@ -1,5 +1,6 @@
   app.controller ('userController', function ($location,$scope,$state, $http,userServiceAPI){
-        $scope.user={};
+
+      $scope.user={};
         $scope.users=[];
         $scope.passwords=[];
         $scope.userID={};

@@ -1,4 +1,4 @@
-<div class="container">
+<div  class="container">
 
 
     <p aria-multiline="true"><a href="#/users"> All Users</a> </p>
@@ -11,41 +11,32 @@
     </td>
 </ul>
 
-
-
-
-
-
-
-
-
-
-
-    <!--<ul>-->
-        <!--<li>Tweets</li>-->
-        <!--<li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}} / {{tweet.userId }}</li>-->
-    <!--</ul>-->
-
-    <input type="text" ng-model="tweet">
-    <button data-ng-click="postTweet(); tweet=null">TweeT</button>
-
+    <label>Neki deskripsn tvitova</label>
+    <ul>
+        <li>Tweets</li>
+        <li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}} / {{tweet.userId }}</li>
+    </ul>
+    <div ng-controller="tweetController">
+        <input type="text" ng-model="tweet">
+        <button  ng-click="postTweet(tweet); tweet=null">TweeT</button>
+    </div>
     <br>
-    <tweet-directive ng-repeat="tweet in tweets" tweet="tweet">{{tweet.content}} <br> <br> </tweet-directive>
+    <tweet-directive ng-repeat="tweet in tweets" tweet="tweet">{{tweet.content}} <br>-------------------------- <br> </tweet-directive>
     <br>
 
 
-    <!--<table border="2">-->
+    <table border="2">
 
-        <!--<tr>-->
-            <!--<td>CONTENT</td>-->
-            <!--<TD>TIME</TD>-->
-        <!--</tr>-->
-        <!--<tr data-ng-repeat="tweet in tweets">-->
-            <!--<td>{{tweet.content}}</td>-->
-            <!--<td>{{tweet.time}}</td>-->
-            <!--<br>-->
-        <!--</tr>-->
-    <!--</table>-->
+        <tr>
+            <td>CONTENT</td>
+            <TD>TIME</TD>
+        </tr>
+        <tr data-ng-repeat="tweet in tweets">
+            <td>{{tweet.content}}</td>
+            <td>{{tweet.time}}</td>
+            <br>
+        </tr>
+    </table>
 
     <input type="text" ng-model="searchContent">
     <button data-ng-click="findCont(); searchContent=null ">Find</button>

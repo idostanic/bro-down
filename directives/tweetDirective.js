@@ -9,7 +9,7 @@ app.directive ('listDirectives',function(){
         scope:{
             tweets:'='
         },
-        controller:'userController'
+        controller:'tweetController'
     }
 
 });

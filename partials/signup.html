@@ -1,9 +1,7 @@
-<div class="container">
+<div ng-controller="signupController" class="container">
     <h2>Register now or <a href="#/signin">Sign In</a></h2>
 
-
-
-<form name="signUpForm">
+    <form name="signUpForm">
 <style>
     .ng-invalid.ng-dirty{border:1px solid red;}
     .ng-valid{border:1px solid green;}
@@ -16,11 +14,14 @@
 
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.number"> Not a Number!</span>
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.required"> Required!</span>
-    <br>
-    Group:<select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" required="" ng-change="listTeachersforGroup(user.groupId)"></select>
-    <br>
-    Teacher:<select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" ></select>
-    <br>
+
+       <br>
+       Group:<select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" ng-change="updateTeachers(user.groupId)" required></select>
+       <br>
+        Teacher:<select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" ></select>
+        <br>
+
+
     Username:<input type="text" name="username" ng-model="user.username" required ng-maxlength="12" ng-minlength="3"/>
 
     <span ng-show="signUpForm.username.$dirty && signUpForm.username.$error.required"> Required!</span>
@@ -33,8 +34,29 @@
     <span ng-show="signUpForm.password.$dirty && signUpForm.password.$error.minlength"> too short!</span>
     <span ng-show="signUpForm.password.$dirty && signUpForm.password.$error.maxlength"> too long!</span>
 
+
     <br>
+
+    <div class="user-image">
+        <div>
+            <img ng-src="{{employee.content}}" height="100" width="100" ng-show="employee.content"/>
+            <div class="upload-image" ng-click="changeUploadClass()">
+                <div class="white-icons-small upload"></div>
+                <span>UPLOAD_IMAGE_NEW</span>
+            </div>
+        </div>
+        <div id="uploadImage" class="dropdown" ng-class="uploadButtonsClass">
+            <div class="fileinputs">
+                <input type="file" file-upload ng-model="employee.content" accept="image/jpg, image/jpeg" class="file">
+
+                <div class="fakefile">
+                    <div class="upload-photo">UPLOAD_IMAGE_PHOTO</div>
+                </div>
+            </div>
+            <div class="remove-photo" ng-click="removePhoto()">UPLOAD_IMAGE_REMOVE</div>
+        </div>
+    </div>
 </form>
-    <button data-ng-click="saveUser()" ng-disabled="signUpForm.$invalid">Register!</button>
+    <button data-ng-click="saveUser(user)" ng-disabled="signUpForm.$invalid">Register!</button>
     
 </div>
