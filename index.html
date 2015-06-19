@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html data-ng-app="app">
+
+<style>
+    body {
+        background: url(progress.png) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    text{
+        color: white;
+    }
+    input, select, textarea {
+        color: #ff0000;
+    }
+
+    textarea:focus, input:focus {
+        color: #ff0000;
+    }
+    input:
+    button{
+        background-color: black;
+        color: white;
+    }
+</style>
+
+
+
 <head lang="en">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -20,12 +49,13 @@
     <meta charset="UTF-8">
     <title>STUDENT APP</title>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog.css">
     <link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog-theme-plain.css">
 </head>
-<body >
+<body style="color:white" >
 <div>
+
 <!-- Placeholder for views  -->
     <div data-ng-view=""></div>
     <ui-view></ui-view>

@@ -3,8 +3,11 @@
 
     <form name="signUpForm">
 <style>
-    .ng-invalid.ng-dirty{border:1px solid red;}
-    .ng-valid{border:1px solid green;}
+    /*.ng-invalid.ng-dirty{border:1px solid red;}*/
+    /*.ng-valid{border:1px solid green;}*/
+    input{
+        color:black;
+    }
 </style>
     Name:<input type="text" name="name" ng-model="user.name" required/>
     <span ng-show="signUpForm.name.$dirty && signUpForm.name.$error.required"> Required!</span>
@@ -14,24 +17,24 @@
 
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.number"> Not a Number!</span>
     <span ng-show="signUpForm.year.$dirty && signUpForm.year.$error.required"> Required!</span>
-
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li><a href="#">Separated link</a></li>
-            </ul>
-        </div>
+        <!-- SEXY DROPDOWN-->
+        <!--<div class="dropdown">-->
+            <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">-->
+                <!--Dropdown-->
+                <!--<span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
 
        <br>
-       Group:<select ng-model="user.groupId" ng-options="group.id as group.name for group in groups" ng-change="updateTeachers(user.groupId)" required></select>
+       Group:<select class="btn btn-default dropdown-toggle" ng-model="user.groupId" ng-options="group.id as group.name for group in groups" ng-change="updateTeachers(user.groupId)" required></select>
        <br>
-        Teacher:<select ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" ></select>
+        Teacher:<select class="btn btn-default dropdown-toggle" ng-model="user.teacherId" ng-options="teacher.id as teacher.name for teacher in teachers" ></select>
         <br>
 
 
@@ -55,7 +58,7 @@
             <img ng-src="{{employee.content}}" height="100" width="100" ng-show="employee.content"/>
             <div class="upload-image" ng-click="changeUploadClass()">
                 <div class="white-icons-small upload"></div>
-                <span>UPLOAD_IMAGE_NEW</span>
+                <span>Upload new image</span>
             </div>
         </div>
         <div id="uploadImage" class="dropdown" ng-class="uploadButtonsClass">
