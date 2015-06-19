@@ -64,7 +64,7 @@ app.service('tweetService',function($http) {
 
     };
 
-    this.findCont=function(searchContent,currentPage,successCallBack,errorCallback){
+    this.findCont=function(searchContent,successCallBack,errorCallback){
 
         var loginUser=localStorage.getItem('userID');
          $http({
@@ -72,7 +72,6 @@ app.service('tweetService',function($http) {
              url:'/api/findContent',
              params:{
                  searchContent:searchContent,
-                 currentPage:currentPage,
                  loginUser:loginUser
              }
          }).success(successCallBack).error(errorCallback)

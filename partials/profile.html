@@ -10,16 +10,18 @@
     </li>
     </td>
 </ul>
-
+    <div ng-controller="tweetController">
     <label>Neki deskripsn tvitova</label>
     <ul>
         <li>Tweets</li>
         <li data-ng-repeat="tweet in tweets">{{tweet.content}} | {{tweet.time}} / {{tweet.userId }}</li>
     </ul>
-    <div ng-controller="tweetController">
+
         <input type="text" ng-model="tweet">
         <button  ng-click="postTweet(tweet); tweet=null">TweeT</button>
+        <label>{{tw33t}}</label>
     </div>
+
     <br>
     <tweet-directive ng-repeat="tweet in tweets" tweet="tweet">{{tweet.content}} <br>-------------------------- <br> </tweet-directive>
     <br>
@@ -39,10 +41,12 @@
     </table>
 
     <input type="text" ng-model="searchContent">
-    <button data-ng-click="findCont(); searchContent=null ">Find</button>
+    <button data-ng-click="findCont(searchContent); searchContent=null ">Find</button>
 
 
     <style>
         tweet-directive {color:red; }
     </style>
+
+
 </div>

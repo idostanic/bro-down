@@ -78,10 +78,10 @@ function tweetController ($scope,tweetService,ngDialog) {
         })
     };
 
-    $scope.findCont = function () {
+    $scope.findCont = function (content) {
 
-
-        tweetService.findCont($scope.searchContent, $scope.currentPage, function (data) {
+        //content instead of $scope.searchContent
+        tweetService.findCont(content, function (data) {
 
             $scope.tweets = data;
 

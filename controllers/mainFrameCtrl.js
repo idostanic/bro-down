@@ -8,8 +8,9 @@ app.controller('mainFrameCtrl',function($scope,ngDialog){
     $scope.open = function () {
         ngDialog.open({
             template: 'partials/changePassword.html',
-            className: 'ngdialog-theme-default ngdialog-theme-custom',
-            controller: 'userController'
+            className: 'ngdialog-theme-plain',
+            controller: 'userController',
+            scope:$scope
         });
     };
 })

@@ -1,6 +1,6 @@
   app.controller ('userController', function ($location,$scope,$state, $http,userServiceAPI){
 
-      $scope.user={};
+        $scope.user={};
         $scope.users=[];
         $scope.passwords=[];
         $scope.userID={};
@@ -42,7 +42,9 @@
 
         $scope.changePassword=function(){
             userServiceAPI.changeInfo($scope.oldPassword,$scope.newPassword,function (data){
-                alert("password is changing...");
+                $scope.closeThisDialog();
+                    alert("password is changed");
+
             },
             function(data){
                 alert('error changing password');

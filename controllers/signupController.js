@@ -44,7 +44,7 @@ function signupController ($location,$scope,userServiceAPI,teacherServiceAPI,gro
             alert( data.name +' is saved with id:' + data.id);
             $location.path('/signin')
         },function(data){
-            alert('ERROR');
+            alert('username already taken');
 
         })
     };
